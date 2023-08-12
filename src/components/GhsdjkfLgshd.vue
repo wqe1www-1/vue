@@ -7,7 +7,7 @@ export default {
   name: 'GhsdjkfLgshd',
   data() {
     return {
-      xuao: 4
+      xuao: 5
     }
   },
   props: {
