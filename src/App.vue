@@ -1,5 +1,8 @@
 <template>
-  <div class="box">
+  <div class="box" :class="falg ? 'da' : 'xiao'">
+    <button id="btn" @click="falg = !falg">
+      <svg t="1691918468372" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5855" width="32" height="32"><path d="M632 163h198.9c17.6 0 32 14.4 32 32v197h64V195c0-52.9-43.1-96-96-96H632v64zM161.1 392V195c0-17.6 14.4-32 32-32H392V99H193.1c-52.9 0-96 43.1-96 96v197h64zM392 861H193.1c-17.6 0-32-14.4-32-32V632h-64v197c0 52.9 43.1 96 96 96H392v-64zM862.9 632v197c0 17.6-14.4 32-32 32H632v64h198.9c52.9 0 96-43.1 96-96V632h-64z" fill="#8a8a8a" p-id="5856"></path></svg>
+    </button>
     <div class="imgs">
       <img src="./assets/e3be97b73717f0f52f8c318e4dd0007.png" class="img" alt="" />
     </div>
@@ -11,6 +14,7 @@
         <b v-show="item.flag"></b>
       </span>
     </div>
+    <hr />
     <div class="di">
       <transition name="fade">
         <components :is="flag"></components>
@@ -18,55 +22,40 @@
     </div>
   </div>
 </template>
-
 <script>
-import mis from './components/mkl.js'
-
-import AdfsdHgshjd from './components/AdfsdHgshjd.vue'
-import BawetxKdbfn from './components/BawetxKdbfn.vue'
-import EafshgUkljsdh from './components/EafshgUkljsdh.vue'
-import GhsdjkfLgshd from './components/GhsdjkfLgshd.vue'
-import MshgdkjGsdhj from './components/MshgdkjGsdhj.vue'
+import shuju from './components/list_data.js'
+import one from './components/One.vue'
+import tow from './components/Tow.vue'
+import three from './components/Three.vue'
+import four from './components/Four.vue'
+import five from './components/Five.vue'
 
 export default {
   name: 'App',
-  mixins: [mis],
-  mis: 'mis',
+  mixins: [shuju],
+  shuju: 'shuju',
 
   data() {
     return {
-      flag: 'BawetxKdbfn',
+      flag: 'tow',
       num: 0,
-      show3: true
+      show3: true,
+      falg: false
     }
   },
   components: {
-    BawetxKdbfn,
-    MshgdkjGsdhj,
-    AdfsdHgshjd,
-    GhsdjkfLgshd,
-    EafshgUkljsdh
+    one,
+    tow,
+    three,
+    four,
+    five
+    
+    
   },
   created() {
     return this.arr
   },
   methods: {
-    show(id) {
-      this.num = id
-      if (id == 0) {
-        if (this.num == id) {
-          this.show3 = true
-        } else {
-          this.show3 = false
-        }
-      } else {
-        if (this.num == id) {
-          this.show3 = true
-        } else {
-          this.show3 = false
-        }
-      }
-    },
     fun(num) {
       this.arr.forEach((item, id) => {
         if (id == num) {
@@ -76,29 +65,32 @@ export default {
         }
       })
       if (num + 1 == 1) {
-        this.flag = 'BawetxKdbfn'
+        this.flag = 'tow'
       } else if (num + 1 == 2) {
-        this.flag = 'MshgdkjGsdhj'
+        this.flag = 'five'
       } else if (num + 1 == 3) {
-        this.flag = 'AdfsdHgshjd'
+        this.flag = 'one'
       } else if (num + 1 == 4) {
-        this.flag = 'GhsdjkfLgshd'
+        this.flag = 'four'
       } else if (num + 1 == 5) {
-        this.flag = 'EafshgUkljsdh'
+        this.flag = 'three'
       }
     }
   }
 }
 </script>
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.8s;
+
+#btn {
+  float: right;
+  position: relative;
+  top: 10px;
+  left: -7px;
 }
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
+.da {
+  margin: auto;
+  width: 80% !important;
+  height: 200px !important;
 }
 
 .transition-box {
@@ -128,8 +120,10 @@ export default {
 }
 .box {
   width: 100%;
-  height: 100vh;
+  height: 95vh;
   background: #1c1c1e;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 button {
   background: #1c1c1e;
@@ -148,7 +142,7 @@ span {
   width: 80px;
 }
 .box1 {
-  width: 95%;
+  width: 80%;
   height: 5vh;
   margin: auto;
   display: flex;
