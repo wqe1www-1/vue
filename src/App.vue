@@ -1,7 +1,12 @@
 <template>
   <div class="box" :class="falg ? 'da' : 'xiao'">
     <button id="btn" @click="falg = !falg">
-      <svg t="1691918468372" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5855" width="32" height="32"><path d="M632 163h198.9c17.6 0 32 14.4 32 32v197h64V195c0-52.9-43.1-96-96-96H632v64zM161.1 392V195c0-17.6 14.4-32 32-32H392V99H193.1c-52.9 0-96 43.1-96 96v197h64zM392 861H193.1c-17.6 0-32-14.4-32-32V632h-64v197c0 52.9 43.1 96 96 96H392v-64zM862.9 632v197c0 17.6-14.4 32-32 32H632v64h198.9c52.9 0 96-43.1 96-96V632h-64z" fill="#8a8a8a" p-id="5856"></path></svg>
+      <svg t="1691918468372" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="5855" width="32" height="32">
+        <path
+          d="M632 163h198.9c17.6 0 32 14.4 32 32v197h64V195c0-52.9-43.1-96-96-96H632v64zM161.1 392V195c0-17.6 14.4-32 32-32H392V99H193.1c-52.9 0-96 43.1-96 96v197h64zM392 861H193.1c-17.6 0-32-14.4-32-32V632h-64v197c0 52.9 43.1 96 96 96H392v-64zM862.9 632v197c0 17.6-14.4 32-32 32H632v64h198.9c52.9 0 96-43.1 96-96V632h-64z"
+          fill="#8a8a8a" p-id="5856"></path>
+      </svg>
     </button>
     <div class="imgs">
       <img src="./assets/e3be97b73717f0f52f8c318e4dd0007.png" class="img" alt="" />
@@ -49,8 +54,8 @@ export default {
     three,
     four,
     five
-    
-    
+
+
   },
   created() {
     return this.arr
@@ -80,13 +85,13 @@ export default {
 }
 </script>
 <style>
-
 #btn {
   float: right;
   position: relative;
   top: 10px;
   left: -7px;
 }
+
 .da {
   margin: auto;
   width: 80% !important;
@@ -105,19 +110,24 @@ export default {
   box-sizing: border-box;
   margin-right: 20px;
 }
+
 .true {
   color: #1890ff !important;
 }
+
 .false {
   color: white !important;
 }
+
 .di {
   margin-top: 1%;
 }
+
 .imgs {
   width: 120px;
   margin: auto;
 }
+
 .box {
   width: 100%;
   height: 95vh;
@@ -125,6 +135,7 @@ export default {
   border-radius: 8px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 button {
   background: #1c1c1e;
   color: #fff;
@@ -132,15 +143,18 @@ button {
   border: none;
   border-radius: 0;
 }
+
 b {
   display: block;
   height: 3px;
   background: #1890ff;
 }
+
 span {
   text-align: center;
   width: 80px;
 }
+
 .box1 {
   width: 80%;
   height: 5vh;
@@ -148,5 +162,4 @@ span {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
-</style>
+}</style>

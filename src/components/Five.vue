@@ -6,7 +6,8 @@
         <div class="tabs">
           <vuedraggable class="wrapper">
             <transition-group>
-              <div v-for="(tab, index1) in search(that)" :key="index1" :class="{ active: activeTab === index1 }" @click="changeTab(index1)">
+              <div v-for="(tab, index1) in search(that)" :key="index1" :class="{ active: activeTab === index1 }"
+                @click="changeTab(index1)">
                 <img class="id" :src="tab.imgs" alt="" />
                 <span class="ziti"> {{ tab.name }} </span>
               </div>
@@ -130,15 +131,18 @@ export default {
 .hovered {
   color: red;
 }
+
 .appsj {
   color: #fff;
   font-size: 20px;
   margin-left: 2%;
   margin-top: 7%;
 }
+
 .shancu {
   float: right;
 }
+
 .aop {
   margin-left: 4%;
   margin-bottom: 2%;
@@ -151,24 +155,29 @@ export default {
   color: #c6c6c7;
   margin-top: 20px;
 }
+
 .ziti {
   float: left;
   margin-left: 5%;
   margin-top: 3%;
 }
+
 .id {
   width: 35px;
   height: 35px;
   float: left;
 }
+
 .pian {
   float: right;
   font-size: 12px;
 }
+
 .biao {
   float: right;
   width: 3%;
 }
+
 .tabs {
   margin-top: -10%;
   width: 100%;
@@ -195,20 +204,24 @@ export default {
 .tab-content div.show {
   display: block;
 }
+
 ul li {
   list-style: none;
   color: #c6c6c7;
   font-weight: 100;
 }
+
 .diyi {
   width: 2%;
   height: 8%;
   text-align: center;
   float: left;
 }
+
 .zhong {
   margin-left: 3%;
 }
+
 .box2 {
   width: 100%;
   height: 80vh;
@@ -217,28 +230,34 @@ ul li {
   border-radius: 8px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 hr {
   width: 100%;
 }
+
 .div1 {
   width: 20%;
   height: 80vh;
   float: left;
   margin-left: 1%;
 }
+
 .div2 {
   width: 75%;
   float: left;
   height: 80vh;
 }
+
 .komj {
   width: 100%;
   overflow-y: scroll;
   height: 70vh;
 }
+
 .div2 :hover {
   color: #1890ff;
 }
+
 .zhongku {
   width: 1px;
   height: 100vh;
@@ -246,5 +265,4 @@ hr {
   margin-left: 2%;
   margin-top: -1%;
   background: #fff;
-}
-</style>
+}</style>

@@ -6,10 +6,12 @@
         <div class="tabs">
           <vuedraggable class="wrapper">
             <transition-group>
-              <div v-for="(tab, index1) in search(that)" :key="index1" :class="{ active: activeTab === index1 }" @click="changeTab(index1)">
+              <div v-for="(tab, index1) in search(that)" :key="index1" :class="{ active: activeTab === index1 }"
+                @click="changeTab(index1)">
                 <img class="id" :src="tab.imgs" alt="" />
                 <span class="ziti"> {{ tab.name }} </span>
-                <el-button @click="del(index1)" class="shancu" type="danger" size="mini" icon="el-icon-delete" circle></el-button>
+                <el-button @click="del(index1)" class="shancu" type="danger" size="mini" icon="el-icon-delete"
+                  circle></el-button>
               </div>
             </transition-group>
           </vuedraggable>
@@ -117,23 +119,28 @@ export default {
 .hovered {
   color: red;
 }
+
 .appsj {
   color: #fff;
   font-size: 20px;
   margin-left: 2%;
   margin-top: 7%;
 }
+
 .biao {
   float: right;
   width: 3%;
 }
+
 .shancu {
   float: right;
 }
+
 .aop {
   margin-left: 4%;
   margin-bottom: 2%;
 }
+
 .zisd {
   width: 100%;
   margin: auto;
@@ -141,20 +148,24 @@ export default {
   color: #c6c6c7;
   margin-top: 20px;
 }
+
 .ziti {
   float: left;
   margin-left: 5%;
   margin-top: 3%;
 }
+
 .id {
   width: 35px;
   height: 35px;
   float: left;
 }
+
 .pian {
   float: right;
   font-size: 12px;
 }
+
 .tabs {
   margin-top: -10%;
   width: 100%;
@@ -181,48 +192,58 @@ export default {
 .tab-content div.show {
   display: block;
 }
+
 ul li {
   list-style: none;
   color: #c6c6c7;
   font-weight: 100;
 }
+
 .diyi {
   width: 2%;
   height: 6%;
   text-align: center;
   float: left;
 }
+
 .zhong {
   margin-left: 3%;
 }
+
 .komj {
   width: 100%;
   overflow-y: scroll;
   height: 70vh;
 }
+
 .box2 {
   width: 100%;
   height: 80vh;
   background: #1c1c1e;
   margin: auto;
 }
+
 hr {
   width: 100%;
 }
+
 .div1 {
   width: 20%;
   height: 80vh;
   float: left;
   margin-left: 1%;
 }
+
 .div2 {
   width: 75%;
   float: left;
   height: 80vh;
 }
+
 .div2 :hover {
   color: #1890ff;
 }
+
 .zhongku {
   width: 1px;
   height: 100vh;
