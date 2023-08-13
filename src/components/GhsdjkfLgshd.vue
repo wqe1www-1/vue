@@ -53,6 +53,7 @@ export default {
   data() {
     return {
       activeTab: 0,
+      isShow: false,
       list1: [
         {
           id: 2,
@@ -79,6 +80,7 @@ export default {
     },
 
     changeTab(index1) {
+      this.isShow = !this.isShow
       this.activeTab = index1
     },
     getBoxColor(inde) {
