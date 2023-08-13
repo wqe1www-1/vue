@@ -1,5 +1,13 @@
 <template>
-  <div class="box">
+  <div class="box" :class="falg ? 'da' : 'xiao'">
+    <button id="btn" @click="falg = !falg">
+      <svg t="1691756254276" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3963" width="16" height="16">
+        <path
+          d="M109.44 960H416a32 32 0 1 1 0 64h-384a32 32 0 0 1-32-32v-384a32 32 0 1 1 64 0v306.88l329.6-328.576a32 32 0 0 1 45.184 45.312L109.44 960zM914.752 64h-306.56a32 32 0 1 1 0-64h384a32 32 0 0 1 32 32v384a32 32 0 1 1-64 0V109.12l-329.6 328.576a32 32 0 0 1-45.184-45.312L914.752 64z"
+          fill="#606266"
+          p-id="3964" />
+      </svg>
+    </button>
     <div class="imgs">
       <img src="./assets/e3be97b73717f0f52f8c318e4dd0007.png" class="img" alt="" />
     </div>
@@ -11,6 +19,7 @@
         <b v-show="item.flag"></b>
       </span>
     </div>
+    <hr />
     <div class="di">
       <transition name="fade">
         <components :is="flag"></components>
@@ -37,7 +46,8 @@ export default {
     return {
       flag: 'BawetxKdbfn',
       num: 0,
-      show3: true
+      show3: true,
+      falg: false
     }
   },
   components: {
@@ -51,22 +61,6 @@ export default {
     return this.arr
   },
   methods: {
-    show(id) {
-      this.num = id
-      if (id == 0) {
-        if (this.num == id) {
-          this.show3 = true
-        } else {
-          this.show3 = false
-        }
-      } else {
-        if (this.num == id) {
-          this.show3 = true
-        } else {
-          this.show3 = false
-        }
-      }
-    },
     fun(num) {
       this.arr.forEach((item, id) => {
         if (id == num) {
@@ -91,6 +85,9 @@ export default {
 }
 </script>
 <style>
+#btn {
+  float: right;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.8s;
@@ -99,6 +96,12 @@ export default {
 .fade-leave-to {
   opacity: 0;
   transform: translateX(30px);
+}
+
+.da {
+  margin: auto;
+  width: 80% !important;
+  height: 200px !important;
 }
 
 .transition-box {
@@ -148,7 +151,7 @@ span {
   width: 80px;
 }
 .box1 {
-  width: 95%;
+  width: 80%;
   height: 5vh;
   margin: auto;
   display: flex;

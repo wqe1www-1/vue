@@ -1,44 +1,60 @@
 <template>
   <div class="box2">
     <div class="div1">
-      <el-input confirm-type="search" v-model="that" placeholder="请输入内容"></el-input>
+      <el-input confirm-type="search" v-model="that" placeholder="请输入名字"></el-input>
       <div>
         <div class="tabs">
-          <div v-for="(tab, index1) in search(that)" :key="index1" :class="{ active: activeTab === index1 }" @click="changeTab(index1)">
+          <vuedraggable class="wrapper">
+            <transition-group>
+              <div v-for="(tab, index1) in search(that)" :key="index1" :class="{ active: activeTab === index1 }" @click="changeTab(index1)">
+                <img class="id" :src="tab.imgs" alt="" />
+                <span class="ziti"> {{ tab.name }} </span>
+                <el-button @click="del(index1)" class="shancu" type="danger" size="mini" icon="el-icon-delete" circle></el-button>
+              </div>
+            </transition-group>
+          </vuedraggable>
+        </div>
+      </div>
+    </div>
+    <div class="zhongku"></div>
+    <transition name="fade">
+      <div class="div2">
+        <div>
+          <div class="aop" v-for="(tab, index) in list1" v-show="activeTab === index" :key="index">
+            <span class="appsj"> {{ tab.content }} </span>
+
             <img class="id" :src="tab.imgs" alt="" />
-            <span class="ziti"> {{ tab.name }} </span>
+            <img class="biao" src="../assets/d2b5d9f33e5364762bd63c529bd7cc6.png" alt="" />
+          </div>
+          <hr />
+
+          <div class="komj">
+            <ul v-for="(item, inde) in list" :key="inde">
+              <li>
+                <div class="diyi" :style="{ backgroundColor: getBoxColor(inde) }">{{ item.id }}</div>
+                <span class="zhong">{{ item.xiangqing }}</span>
+                <span class="pian">{{ item.dian }}</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-    <div class="div2">
-      <div>
-        <div class="aop" v-for="(tab, index) in list1" v-show="activeTab === index" :key="index">
-          <span class="appsj"> {{ tab.content }} </span>
-          <img class="id" :src="tab.imgs" alt="" />
-        </div>
-        <ul v-for="(item, inde) in list" :key="inde">
-          <li>
-            <div class="diyi" :style="{ backgroundColor: getBoxColor(inde) }">{{ item.id }}</div>
-            <span class="zhong">{{ item.xiangqing }}</span>
-            <span class="pian">{{ item.dian }}</span>
-          </li>
-        </ul>
-      </div>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script>
+import vuedraggable from 'vuedraggable'
 import mis from '../components/mkl.js'
-
 export default {
   name: 'BawetxKdbfn',
   mixins: [mis],
+  components: { vuedraggable },
+
   data() {
     return {
       activeTab: 0,
-
+      isShow: false,
       list1: [
         {
           id: 1,
@@ -63,7 +79,6 @@ export default {
       that: ''
     }
   },
-  components: {},
 
   created() {
     return this.list
@@ -76,16 +91,22 @@ export default {
         }
       })
     },
+    del(index1) {
+      if (confirm(`确定要删除的吗 `)) {
+        this.list1.splice(index1, 1)
+      }
+    },
     changeTab(index1) {
+      this.isShow = !this.isShow
       this.activeTab = index1
     },
     getBoxColor(inde) {
       if (inde === 0) {
-        return 'red'
+        return '#fe2d46'
       } else if (inde === 1) {
-        return 'green'
+        return '#ff6600'
       } else if (inde === 2) {
-        return 'yellow'
+        return '#faa90e'
       }
     }
   }
@@ -93,15 +114,34 @@ export default {
 </script>
 
 <style scoped>
+.hovered {
+  color: red;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.8s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
 .appsj {
   color: #fff;
   font-size: 20px;
   margin-left: 2%;
   margin-top: 7%;
 }
+.biao {
+  float: right;
+  width: 3%;
+}
+.shancu {
+  float: right;
+}
 .aop {
   margin-left: 4%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 .zisd {
   width: 100%;
@@ -125,6 +165,7 @@ export default {
   font-size: 12px;
 }
 .tabs {
+  margin-top: -10%;
   width: 100%;
   color: #fff;
 }
@@ -156,28 +197,48 @@ ul li {
 }
 .diyi {
   width: 2%;
-  height: 8%;
+  height: 6%;
   text-align: center;
   float: left;
 }
 .zhong {
   margin-left: 3%;
 }
+.komj {
+  width: 100%;
+  overflow-y: scroll;
+  height: 70vh;
+}
 .box2 {
-  width: 98%;
+  width: 100%;
   height: 80vh;
   background: #1c1c1e;
   margin: auto;
 }
+hr {
+  width: 100%;
+}
 .div1 {
-  width: 18%;
+  width: 20%;
   height: 80vh;
   float: left;
+  margin-left: 1%;
 }
 .div2 {
-  width: 70%;
+  width: 75%;
   float: left;
-  margin-left: 3%;
+
   height: 80vh;
+}
+.div2 :hover {
+  color: #1890ff;
+}
+.zhongku {
+  width: 1px;
+  height: 100vh;
+  float: left;
+  margin-left: 2%;
+  margin-top: -1%;
+  background: #fff;
 }
 </style>
