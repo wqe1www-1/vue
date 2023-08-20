@@ -6,12 +6,10 @@
         <div class="tabs">
           <vuedraggable class="wrapper">
             <transition-group>
-              <div v-for="(tab, index1) in search(that)" :key="index1" :class="{ active: activeTab === index1 }"
-                @click="changeTab(index1)">
+              <div v-for="(tab, index1) in search(that)" :key="index1" :class="{ active: activeTab === index1 }" @click="changeTab(index1)">
                 <img class="id" :src="tab.imgs" alt="" />
                 <span class="ziti"> {{ tab.name }} </span>
-                <el-button @click="del(index1)" class="shancu" type="danger" size="mini" icon="el-icon-delete"
-                  circle></el-button>
+                <el-button @click="del(index1)" class="shancu" type="danger" size="mini" icon="el-icon-delete" circle></el-button>
               </div>
             </transition-group>
           </vuedraggable>
